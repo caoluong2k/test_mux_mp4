@@ -2,12 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include "../thirdparty/codec_sim/ipc.h"
+
 #include "../thirdparty/minimp4/include/minimp4.h"
 #include "../thirdparty/codec_sim/ipc.h"
 #include "../thirdparty/log/log.h"
 
 
-int VideoFrameCallBack(uint8_t *frame, int len, int iskey, int64_t timestamp)
+static int VideoFrameCallBack(uint8_t *frame, int len, int iskey, int64_t timestamp)
 {
 
     /**TODO - Get frame here and handle */
@@ -17,7 +19,7 @@ int VideoFrameCallBack(uint8_t *frame, int len, int iskey, int64_t timestamp)
     return 0;
 }
 
-int AudioFrameCallBack(uint8_t *frame, int len, int64_t timestamp)
+static int AudioFrameCallBack(uint8_t *frame, int len, int64_t timestamp)
 {
     
     /**TODO - Get frame here and handle */

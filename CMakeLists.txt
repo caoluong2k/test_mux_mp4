@@ -9,10 +9,10 @@ target_link_libraries(test_mp4_mux_frame PRIVATE minimp4 h264reader)
 
 
 add_executable(test_mp4_mux_audio_video ${CMAKE_CURRENT_SOURCE_DIR}/unit_test/test_mux_audio_video.c)
-target_include_directories(test_mp4_mux_frame PUBLIC 
+target_include_directories(test_mp4_mux_audio_video PUBLIC 
     ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/minimp4/include
     ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/codec_sim
     )
-target_link_libraries(test_mp4_mux_frame PRIVATE minimp4 h264reader codec_ipc_sim)
+target_link_libraries(test_mp4_mux_audio_video PRIVATE minimp4 h264reader codec_ipc_sim)
 
 add_subdirectory(thirdparty)
