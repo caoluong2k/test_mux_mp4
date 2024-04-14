@@ -6,7 +6,7 @@
 #include "../thirdparty/h264reader/h264reader.h"
 #include "../thirdparty/minimp4/include/minimp4.h"
 #include "../thirdparty/codec_sim/ipc.h"
-#include "../thirdparty/log/log.h"
+#include "../thirdparty/log/include/log.h"
 
 static int write_callback(int64_t offset, const void *buffer, size_t size, void *token)
 {

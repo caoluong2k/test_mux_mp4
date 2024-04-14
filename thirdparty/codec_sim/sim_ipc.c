@@ -7,7 +7,7 @@
 #include <math.h>
 #include <time.h>
 #include <sys/time.h>
-#include "../log/log.h"
+#include "/home/ndp/Documents/test_mp4/thirdparty/log/include/log.h"
 #include "ipc.h"
 
 typedef struct
