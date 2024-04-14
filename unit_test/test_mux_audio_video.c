@@ -27,6 +27,8 @@ static void _close()
     fclose(mp4_file_mux);
     log_debug("close\n");
 
+    
+
 }
 
 static int VideoFrameCallBack(uint8_t *frame, int len, int iskey, int64_t timestamp)
