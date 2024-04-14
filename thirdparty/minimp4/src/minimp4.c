@@ -48,7 +48,7 @@ static int minimp4_vector_grow(minimp4_vector_t *h, int bytes)
 */
 static unsigned char *minimp4_vector_alloc_tail(minimp4_vector_t *h, int bytes)
 {
-    LOG_INFO("Allocates given number of bytes at the end of vector data, increasing vector memory if necessary");
+    // LOG_INFO("Allocates given number of bytes at the end of vector data, increasing vector memory if necessary");
     unsigned char *p;
     if (!h->data && !minimp4_vector_init(h, 2 * bytes + 1024))
         return NULL;
@@ -66,7 +66,7 @@ static unsigned char *minimp4_vector_alloc_tail(minimp4_vector_t *h, int bytes)
 */
 static unsigned char *minimp4_vector_put(minimp4_vector_t *h, const void *buf, int bytes)
 {
-    LOG_INFO("Append data to the end of the vector (accumulate ot enqueue)");
+    // LOG_INFO("Append data to the end of the vector (accumulate ot enqueue)");
     unsigned char *tail = minimp4_vector_alloc_tail(h, bytes);
     if (tail)
         memcpy(tail, buf, bytes);
@@ -256,6 +256,12 @@ int MP4E_set_vps(MP4E_mux_t *mux, int track_id, const void *vps, int bytes)
  */
 int MP4E_set_sps(MP4E_mux_t *mux, int track_id, const void *sps, int bytes)
 {
+    if (mux == NULL || track_id < 0 || sps == NULL || bytes < 0)
+    {
+        LOG_ERROR("Invalid params");
+        return MP4E_STATUS_NO_MEMORY;
+    }
+
     LOG_INFO("MP4E set sps");
     track_t *tr = ((track_t *)mux->tracks.data) + track_id;
     assert(tr->info.track_media_kind == e_video);
@@ -1860,6 +1866,11 @@ static int mp4_h265_write_nal(mp4_h26x_writer_t *h, const unsigned char *nal, in
 
 int mp4_h26x_write_nal(mp4_h26x_writer_t *h, const unsigned char *nal, int length, unsigned timeStamp90kHz_next)
 {
+    if (h == NULL || nal == NULL || length <= 0)
+    {
+        return -1;
+    }
+
     LOG_INFO("mp4 h26x write nal");
     const unsigned char *eof = nal + length;
     int payload_type, sizeof_nal, err = MP4E_STATUS_OK;

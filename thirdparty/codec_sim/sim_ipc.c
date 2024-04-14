@@ -7,7 +7,7 @@
 #include <math.h>
 #include <time.h>
 #include <sys/time.h>
-#include "/home/ndp/Documents/test_mp4/thirdparty/log/include/log.h"
+#include "../../thirdparty/log/log.h"
 #include "ipc.h"
 
 typedef struct
@@ -542,7 +542,7 @@ void *sim_ipc_audio_task(void *param)
                 if (ipc->audio_cb)
                 {
                     count++;
-                    log_debug("fix.sampling_frequency_index = %d", fix.sampling_frequency_index);
+                    // log_debug("fix.sampling_frequency_index = %d", fix.sampling_frequency_index);
 
                     // 1024 is number sample of each audio frame, 1000 for convert to ms
                     interval = ((1024 * 1000.0) / aacfreq[fix.sampling_frequency_index]);

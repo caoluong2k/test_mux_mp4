@@ -6,7 +6,7 @@
 #include "../thirdparty/h264reader/h264reader.h"
 #include "../thirdparty/minimp4/include/minimp4.h"
 #include "../thirdparty/codec_sim/ipc.h"
-#include "../thirdparty/log/include/log.h"
+#include "../thirdparty/log/log.h"
 
 static int write_callback(int64_t offset, const void *buffer, size_t size, void *token)
 {
@@ -23,7 +23,7 @@ int main()
     void *pH264Reader = NULL;
     int ret = 0;
 
-    FILE *mp4_file_mux = fopen("../test_file/test_mp4.mp4", "wb");
+    FILE *mp4_file_mux = fopen("../test_file/test_mp4_video.mp4", "wb");
     if (mp4_file_mux == NULL)
     {
         LOG_ERROR("Can't open file mp4");
@@ -47,7 +47,7 @@ int main()
     }
 
     int sequential_mode = 1;
-    int fragmentation_mode = 1;
+    int fragmentation_mode = 0;
     int do_demux = 0;
     int is_hevc = 0;
 

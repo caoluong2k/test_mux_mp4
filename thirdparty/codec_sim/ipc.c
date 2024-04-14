@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "ipc.h"
-#include "/home/ndp/Documents/test_mp4/thirdparty/log/include/log.h"
+#include "../../thirdparty/log/log.h"
 
 static ipc_dev_t *ipc;
 

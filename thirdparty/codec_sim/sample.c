@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "ipc.h"
-#include "../thirdparty/log/include/log.h"
+#include "../thirdparty/log/log.h"
 
 int VideoFrameCallBack(uint8_t *frame, int len, int iskey, int64_t timestamp)
 {
